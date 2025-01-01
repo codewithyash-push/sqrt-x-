@@ -1,4 +1,22 @@
 # sqrt-x-
-Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
+# Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
+# You must not use any built-in exponent function or operator.
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        if x < 2:
+            return x 
+        
+        left, right = 1, x // 2
+        result = 0
+        
+        while left <= right:
+            mid = (left + right) // 2
+            if mid * mid <= x:
+                result = mid
+                left = mid + 1
+            else:
+                right = mid - 1
+        
+        return result
 
-You must not use any built-in exponent function or operator.
+        
